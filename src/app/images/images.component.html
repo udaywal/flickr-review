@@ -1,0 +1,117 @@
+<!-- Header Screen -->
+
+<nav class="navbar navbar-expand-md navbar-light bg-light myShadow">
+    <div class="container">
+        <a class="navbar-brand" href="/">
+            <b>Flickr Flicks!</b>
+        </a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+            aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    Hello Visitor!
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<br><br>
+
+<!-- Main Screen -->
+
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-md-4">
+
+            <div class="card bg-light">
+                <div class="card-body">
+                    <h4 class="card-title"><b>Image Details</b></h4>
+                    <p><b>Image uploaded by:</b> {{photoBy}}</p>
+                    <p><b>Image description:</b> {{photoDescription}}</p>
+                    <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#addReview">Add
+                        Review</button>&nbsp;
+                    <button type="button" class="btn btn-warning" [routerLink]="['/']">Go Back</button>
+                </div>
+            </div>
+            <br>
+            <div class="card bg-light" *ngIf="isReview === true">
+                <div class="card-body">
+                    <h4 class="card-title"><b>Review Details</b></h4>
+                    <p><b>Reviewer:</b> {{showReviewBy}}</p>
+                    <p><b>Ratings:</b> {{showRatings}}</p>
+                    <p><b>Review:</b> {{showReviewDescription}}</p>
+                </div>
+            </div>
+
+            <!-- Add review Modal -->
+            <div class="modal fade" id="addReview" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">Add Review</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label>Review by</label>
+                                <input type="text" class="form-control" [(ngModel)]="reviewBy" #item="ngModel"
+                                    name="itemName" aria-describedby="itemNameHelp" placeholder="Please enter your name"
+                                    required autofocus>
+                                <br>
+                                <label>Rate the image:</label>
+                                <select class="form-control" [(ngModel)]="ratings">
+                                    <option [value]=""> </option>
+                                    <option [value]="1">1 - :(</option>
+                                    <option [value]="2">2 - Poor</option>
+                                    <option [value]="3">3 - Average</option>
+                                    <option [value]="4">4 - Good</option>
+                                    <option [value]="5">5 - Excellent</option>
+                                </select>
+                                <br>
+                                <label>Write your review here</label>
+                                <input type="text" class="form-control" [(ngModel)]="reviewDescription" #item="ngModel"
+                                    name="itemDescription" aria-describedby="itemDescriptionHelp"
+                                    placeholder="Wanna say anything?" required>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" (click)="addReview()" [disabled]="!item.valid"
+                                data-dismiss="modal">Review</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="card col-md-8" style="padding:3rem 2rem; background-color:#f8f8f8;" *ngIf="photoInfo">
+
+            <img src="https://farm{{photoInfo.farm}}.staticflickr.com/{{photoInfo.server}}/{{photoInfo.id}}_{{photoInfo.secret}}_z.jpg">
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Footer Screen -->
+
+<br><br>
+
+<footer class="py-5" style="background-color: #f0f0f0">
+    <div class="container">
+        <p class="small">Copyright <span class="colorLayer">&copy; Vaibhav Udaywal </span></p>
+    </div>
+</footer>

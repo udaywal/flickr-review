@@ -1,0 +1,43 @@
+.myShadow {
+    -webkit-box-shadow: 0px 4px 20px -15px rgba(0,0,0,1);
+    -moz-box-shadow: 0px 4px 20px -15px rgba(0,0,0,1);
+    box-shadow: 0px 4px 20px -15px rgba(0,0,0,1);
+  }
+  
+  .colorLayer {
+    color: #2e2ae8;
+  }
+
+  .scroll {
+    position: fixed;
+    bottom: 5px;
+    right: 5px;
+    font-size: 20px;
+    text-align: center;
+    border-radius: 5px;
+    outline: none;
+  }
+  
+  .btn-xl-n {
+      text-transform: uppercase;
+      padding: .6rem 1.2rem;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1rem;
+      border-radius: 5rem;
+      border-color: #2e2ae8;
+      border-width: .1rem;
+      color: black;
+    }
+      
+    .btn-xl-n:hover {
+      text-transform: uppercase;
+      padding: .6rem 1.2rem;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1rem;
+      border-radius: 5rem;
+      border-color: #0400fc;
+      border-width: .1rem;
+      color: black;
+    }
